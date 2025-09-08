@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="en-US" demote-non-dropping-particle="never">
+  <info>
+    <title>ISSAT 2025</title>
+    <title-short>ISSAT-2025</title-short>
+    <id>http://www.zotero.org/styles/issat-2025</id>
+    <link href="http://www.zotero.org/styles/issat-2025" rel="self"/>
+    <link href="http://www.zotero.org/styles/itb-sps" rel="template"/>
+    <author>
+      <name>CSL Assistant</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="engineering"/>
+    <summary>ISSAT 2025 conference style: initials before family name, abbreviated journal, volume bold, year in parentheses, DOI hyperlink.</summary>
+    <updated>2025-09-08T12:00:00+00:00</updated>
+    <rights>CC0</rights>
+  </info>
+
+  <locale xml:lang="en">
+    <terms>
+      <term name="et-al">et al.</term>
+      <term name="no date">no date</term>
+    </terms>
+  </locale>
+
+  <!-- Author macro: initials before family name -->
+  <macro name="author">
+    <names variable="author" delimiter=", ">
+      <name initialize-with=". " name-as-sort-order="all" delimiter-precedes-last="always"/>
+      <label form="short" prefix=" (" suffix=")" text-case="capitalize-first"/>
+      <substitute>
+        <names variable="editor"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="journal">
+    <text variable="container-title" form="short"/>
+  </macro>
+
+  <macro name="volume">
+    <text variable="volume" font-weight="bold"/>
+  </macro>
+
+  <macro name="issue">
+    <text variable="issue" prefix="(" suffix=")"/>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page" prefix=", "/>
+  </macro>
+
+  <macro name="issued">
+    <choose>
+      <if variable="issued">
+        <date variable="issued" prefix="(" suffix=")">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short" prefix="(" suffix=")"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="doi">
+    <text variable="DOI" prefix="https://doi.org/"/>
+  </macro>
+
+  <!-- Citation: numeric, bracketed -->
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- Bibliography layout -->
+  <bibliography hanging-indent="true" entry-spacing="0" line-spacing="1">
+    <sort>
+      <key macro="author"/>
+      <key macro="issued"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <text macro="author" suffix=", "/>
+      <text macro="title" suffix=", "/>
+      <text macro="journal" suffix=", "/>
+      <group delimiter=", ">
+        <text macro="volume"/>
+        <text macro="issue"/>
+        <text macro="pages"/>
+      </group>
+      <text macro="issued" suffix=". "/>
+      <text macro="doi"/>
+    </layout>
+  </bibliography>
+</style>
