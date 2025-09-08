@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US" demote-non-dropping-particle="sort-only">
+  <info>
+    <title>ISSAT 2025</title>
+    <id>http://www.zotero.org/styles/issat-2025</id>
+    <link href="http://www.zotero.org/styles/issat-2025" rel="self"/>
+    <link href="http://www.zotero.org/styles/elsevier-vancouver" rel="template"/>
+    <link href="https://issat2025-conference.org" rel="documentation"/>
+    <author>
+      <name>Custom Style Generator</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="engineering"/>
+    <summary>Citation style for ISSAT 2025 Conference Papers</summary>
+    <updated>2025-09-08T12:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+
+  <!-- Citation style -->
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- Bibliography style -->
+  <bibliography et-al-min="7" et-al-use-first="6" entry-spacing="0" line-spacing="2" second-field-align="flush">
+    <layout suffix=".">
+      <!-- Authors -->
+      <names variable="author">
+        <name initialize-with="." name-as-sort-order="all" delimiter=", " and="text"/>
+      </names>
+
+      <!-- Title -->
+      <text variable="title" prefix=", "/>
+
+      <!-- Journal info -->
+      <group delimiter=", ">
+        <text variable="container-title" form="short" font-style="italic"/>
+        <group delimiter=", ">
+          <text variable="volume" font-weight="bold"/>
+          <text variable="page"/>
+        </group>
+        <date variable="issued" prefix="(" suffix=")">
+          <date-part name="year"/>
+        </date>
+      </group>
+
+      <!-- DOI -->
+      <text variable="DOI" prefix=", https://doi.org/"/>
+    </layout>
+  </bibliography>
+</style>
