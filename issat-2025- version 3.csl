@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="en-US">
+  <info>
+    <title>EPJ Conferences / ISSAT 2025 (Fixed v2)</title>
+    <id>http://www.zotero.org/styles/epj-conferences-issat-2025-fixed-v2</id>
+    <link href="http://www.zotero.org/styles/epj-conferences-issat-2025-fixed-v2" rel="self"/>
+    <author>
+      <name>AI Assistant</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="science"/>
+    <summary>Gaya kutipan numerik yang diformat sesuai contoh untuk Jurnal, Buku, Prosiding, dan Tesis (versi perbaikan v2).</summary>
+    <updated>2025-09-08T19:45:00+07:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name initialize-with=". " delimiter=", "/>
+      <label form="short" prefix=" (" suffix=")"/>
+      <substitute>
+        <names variable="editor"/>
+      </substitute>
+    </names>
+  </macro>
+  
+  <macro name="year-date">
+     <date variable="issued">
+        <date-part name="year"/>
+      </date>
+  </macro>
+  
+  <macro name="year-in-parentheses">
+     <date variable="issued" prefix="(" suffix=")">
+        <date-part name="year"/>
+      </date>
+  </macro>
+
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography entry-spacing="0" second-field-align="flush">
+    <layout>
+      <text variable="citation-number" suffix="."/>
+      <text value="&#x9;"/> <choose>
+        <if type="article-journal">
+          <group delimiter=" ">
+            <text macro="author" suffix=","/>
+            <text variable="title" suffix="."/>
+            <text variable="container-title" font-style="italic"/>
+            <choose>
+                <if variable="status"> 
+                    <text value="(to be published)"/>
+                </if>
+                <else>
+                    <group delimiter=", ">
+                        <text variable="volume"/>
+                        <text variable="page"/>
+                    </group>
+                    <text macro="year-in-parentheses"/>
+                </else>
+            </choose>
+            <text variable="DOI" prefix=". https://doi.org/"/>
+          </group>
+        </if>
+        
+        <else-if type="book">
+            <group delimiter=", ">
+                <text macro="author"/>
+                <text variable="title" font-style="italic"/>
+                <group prefix="(" suffix=")" delimiter=", ">
+                    <text variable="publisher"/>
+                    <text variable="publisher-place"/>
+                    <text macro="year-date"/>
+                </group>
+            </group>
+        </else-if>
+
+        <else-if type="paper-conference">
+             <group delimiter=", ">
+                <text macro="author"/>
+                <text variable="title"/>
+                <group delimiter=" ">
+                    <text term="in" font-style="normal"/>
+                    <text variable="container-title" font-style="italic"/>
+                </group>
+                <text variable="event-place"/>
+                <date variable="issued" form="text">
+                  <date-part name="month"/>
+                  <date-part name="day" prefix=" "/>
+                </date>
