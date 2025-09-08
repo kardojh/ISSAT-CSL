@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" default-locale="en-US">
+  <info>
+    <title>ISSAT 2025 (validated)</title>
+    <id>http://www.zotero.org/styles/issat-2025-validated</id>
+    <link href="http://www.zotero.org/styles/issat-2025-validated" rel="self"/>
+    <author>
+      <name>Kardo Jakson</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="science"/>
+    <updated>2025-09-08T00:00:00+00:00</updated>
+    <rights>CC0</rights>
+  </info>
+
+  <locale xml:lang="en">
+    <terms>
+      <term name="no date">no date</term>
+    </terms>
+  </locale>
+
+  <!-- Macros -->
+  <macro name="author">
+    <names variable="author" delimiter=", " initialize-with=". " and="text">
+      <name delimiter-precedes-last="never"/>
+    </names>
+  </macro>
+
+  <macro name="issued-year">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="journal">
+    <text variable="container-title" form="short"/>
+  </macro>
+
+  <macro name="volume">
+    <text variable="volume"/>
+  </macro>
+
+  <macro name="issue">
+    <text variable="issue" prefix="(" suffix=")"/>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page" prefix=" "/>
+  </macro>
+
+  <macro name="publisher">
+    <text variable="publisher"/>
+  </macro>
+
+  <macro name="booktitle">
+    <text variable="container-title"/>
+  </macro>
+
+  <macro name="doi">
+    <text variable="DOI" prefix=" https://doi.org/"/>
+  </macro>
+
+  <!-- Citation (numeric) -->
+  <citation>
+    <sort>
+      <key macro="author"/>
+      <key macro="issued-year"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- Bibliography -->
+  <bibliography>
+    <sort>
+      <key macro="author"/>
+      <key macro="issued-year"/>
+      <key variable="title"/>
+    </sort>
+    <layout hanging-indent="true" suffix="." delimiter=", ">
+      <group delimiter=". ">
+        <text macro="author"/>
+        <text macro="title"/>
+      </group>
+      <group>
+        <text macro="journal"/>
+        <group delimiter="">
+          <text macro="volume"/>
+          <text macro="issue"/>
+        </group>
+        <text macro="pages"/>
+      </group>
+      <text macro="issued-year" prefix="(" suffix=")"/>
+      <text macro="doi"/>
+    </layout>
+  </bibliography>
+</style>
