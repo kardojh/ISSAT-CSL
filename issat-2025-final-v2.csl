@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="en-US" demote-non-dropping-particle="never">
+  <info>
+    <title>ISSAT 2025</title>
+    <title-short>ISSAT-2025</title-short>
+    <id>http://www.zotero.org/styles/issat-2025</id>
+    <link href="http://www.zotero.org/styles/issat-2025" rel="self"/>
+    <link href="http://www.zotero.org/styles/elsevier-vancouver" rel="template"/>
+    <author>
+      <name>CSL Assistant</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="engineering"/>
+    <summary>ISSAT 2025 conference style: initials before family name, abbreviated journal, volume bold, year in parentheses, DOI hyperlink.</summary>
+    <updated>2025-09-08T12:00:00+00:00</updated>
+    <rights>CC0</rights>
+  </info>
+
+  <locale xml:lang="en">
+    <terms>
+      <term name="et-al">et al.</term>
+      <term name="no date">no date</term>
+    </terms>
+  </locale>
+
+  <!-- Author macro: initials before family name, e.g., J. Smith -->
+  <macro name="author">
+    <names variable="author" delimiter=", " and="text">
+      <name name-as-sort-order="all" initialize-with=". " delimiter-precedes-last="always"/>
+    </names>
+  </macro>
+
+  <!-- Short author for in-text (if needed) -->
+  <macro name="author-short">
+    <names variable="author" delimiter=", " and="text">
+      <name form="short" initialize-with=". " delimiter-precedes-last="always"/>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="container">
+    <text variable="container-title" form="short"/>
+  </macro>
+
+  <macro name="volume">
+    <text variable="volume" font-weight="bold"/>
+  </macro>
+
+  <macro name="issue">
+    <text variable="issue" prefix="(" suffix=")"/>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page" prefix=", "/>
+  </macro>
+
+  <macro name="issued">
+    <choose>
+      <if variable="issued">
+        <date variable="issued" prefix="(" suffix=")">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short" prefix="(" suffix=")"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="doi">
+    <text variable="DOI" prefix=". https://doi.org/"/>
+  </macro>
+
+  <!-- Citation: numeric, bracketed -->
+  <citation collapse="citation-number">
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- Bibliography layout -->
+  <bibliography hanging-indent="true" entry-spacing="0" line-spacing="1.2" et-al-min="6" et-al-use-first="3">
+    <sort>
+      <key macro="author"/>
+      <key macro="issued"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <!-- Authors: initials then family name -->
+      <text macro="author" suffix=", "/>
+      <!-- Title -->
+      <text macro="title" suffix=", "/>
+      <!-- Journal (abbrev), Volume (bold), pages -->
+      <group delimiter=", ">
+        <text macro="container" font-style="italic" />
+        <text macro="volume"/>
+        <text macro="pages"/>
+      </group>
+      <!-- Year in parentheses -->
+      <text macro="issued" suffix="."/>
+      <!-- DOI -->
+      <text macro="doi"/>
+    </layout>
+  </bibliography>
+</style>
