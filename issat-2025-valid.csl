@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>ISSAT 2025 Valid Style</title>
+    <id>http://www.zotero.org/styles/issat-2025-valid</id>
+    <author>
+      <name>Kardo Jakson</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="science"/>
+  </info>
+
+  <!-- Macros -->
+  <macro name="author">
+    <names variable="author">
+      <name form="initials" and="text" delimiter=", "/>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="journal">
+    <text variable="container-title" form="short"/>
+  </macro>
+
+  <macro name="volume">
+    <text variable="volume" font-weight="bold"/>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page"/>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="doi">
+    <text variable="DOI" prefix="https://doi.org/"/>
+  </macro>
+
+  <macro name="publisher">
+    <text variable="publisher"/>
+  </macro>
+
+  <macro name="booktitle">
+    <text variable="container-title"/>
+  </macro>
+
+  <!-- Bibliography layout (sederhana, semua tipe referensi) -->
+  <bibliography>
+    <layout hanging-indent="true" delimiter=", ">
+      <text macro="author"/>
+      <text macro="title"/>
+      <text macro="journal"/>
+      <text macro="volume"/>
+      <text macro="pages"/>
+      <text macro="booktitle"/>
+      <text macro="publisher"/>
+      <text macro="issued" prefix="(" suffix=")"/>
+      <text macro="doi"/>
+    </layout>
+  </bibliography>
+
+  <!-- Citation layout (sederhana, semua tipe referensi) -->
+  <citation>
+    <layout delimiter=", ">
+      <text macro="author"/>
+      <text macro="title"/>
+      <text macro="journal"/>
+      <text macro="volume"/>
+      <text macro="pages"/>
+      <text macro="booktitle"/>
+      <text macro="publisher"/>
+      <text macro="issued" prefix="(" suffix=")"/>
+      <text macro="doi"/>
+    </layout>
+  </citation>
+</style>
