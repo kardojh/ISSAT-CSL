@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
+  <info>
+    <title>Gaya Jurnal Kustom Sesuai Permintaan</title>
+    <id>http://www.zotero.org/styles/gaya-jurnal-kustom</id>
+    <link href="http://www.zotero.org/styles/gaya-jurnal-kustom" rel="self"/>
+    <link href="http://support.zotero.org/forums/discussion/17947/disappearing-et-al/" rel="documentation"/>
+    <author>
+      <name>Gemini</name>
+      <email>gemini@google.com</email>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="generic-base"/>
+    <summary>Gaya kutipan kustom berdasarkan ketentuan yang diberikan.</summary>
+    <updated>2025-09-08T19:12:10+07:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name initialize-with=". " delimiter=", " name-as-sort-order="all" sort-separator=" "/>
+      <label form="short" prefix=" (" suffix=")" text-case="capitalize-first"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text macro="title"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="journal-info">
+    <group delimiter=", ">
+      <text variable="container-title" form="short" strip-periods="true"/>
+      <text variable="volume" font-weight="bold"/>
+      <choose>
+        <if variable="article-number">
+          <text variable="article-number"/>
+        </if>
+        <else>
+          <text variable="page"/>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="year-in-brackets">
+    <date variable="issued">
+      <date-part name="year" prefix="(" suffix=")"/>
+    </date>
+  </macro>
+  
+  <macro name="doi-link">
+      <text variable="DOI" prefix="https://doi.org/"/>
+  </macro>
+
+  <bibliography hanging-indent="true" et-al-min="7" et-al-use-first="6">
+    <sort>
+      <key macro="author"/>
+      <key variable="issued"/>
+    </sort>
+    <layout>
+      <group delimiter=". ">
+        <text macro="author"/>
+        <text macro="title"/>
+        <group delimiter=" ">
+          <text macro="journal-info"/>
+          <text macro="year-in-brackets"/>
+        </group>
+        <text macro="doi-link"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>
