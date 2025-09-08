@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="en-US">
+  <info>
+    <title>ISSAT 2025</title>
+    <id>http://www.zotero.org/styles/issat-2025</id>
+    <link href="http://www.zotero.org/styles/issat-2025" rel="self"/>
+    <link href="http://www.zotero.org/styles/itb-sps" rel="template"/>
+    <author>
+      <name>Custom Adaptation</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="engineering"/>
+    <summary>ISSAT 2025 style based on ITB SPS: initials before last name, abbrev journal, bold volume, year in parentheses, DOI hyperlink.</summary>
+    <updated>2025-09-08T12:30:00+00:00</updated>
+    <rights>CC0</rights>
+  </info>
+
+  <locale xml:lang="en">
+    <terms>
+      <term name="et-al">et al.</term>
+    </terms>
+  </locale>
+
+  <!-- Author formatting -->
+  <macro name="author">
+    <names variable="author" delimiter=", " and="text">
+      <name name-as-sort-order="all" initialize-with=". " delimiter-precedes-last="always"/>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="journal">
+    <text variable="container-title" form="short"/>
+  </macro>
+
+  <macro name="volume">
+    <text variable="volume" font-weight="bold"/>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page"/>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued" prefix="(" suffix=")">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="doi">
+    <text variable="DOI" prefix="https://doi.org/"/>
+  </macro>
+
+  <!-- Citation numbers in square brackets -->
+  <citation collapse="citation-number">
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- Bibliography formatting -->
+  <bibliography hanging-indent="true" entry-spacing="0" line-spacing="1.2">
+    <layout suffix=".">
+      <text macro="author" suffix=", "/>
+      <text macro="title" suffix=", "/>
+      <text macro="journal" suffix=", "/>
+      <text macro="volume" suffix=", "/>
+      <text macro="pages" suffix=" "/>
+      <text macro="issued" suffix=". "/>
+      <text macro="doi"/>
+    </layout>
+  </bibliography>
+</style>
