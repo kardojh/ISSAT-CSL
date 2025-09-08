@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>ISSAT 2025 Style</title>
+    <id>http://www.zotero.org/styles/issat-2025</id>
+    <link href="http://www.zotero.org/styles/issat-2025" rel="self"/>
+    <author>
+      <name>Kardo Jakson</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="science"/>
+  </info>
+
+  <!-- Macros -->
+  <macro name="author">
+    <names variable="author">
+      <name form="initials" and="text" delimiter=", "/>
+    </names>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="journal">
+    <text variable="container-title" form="short"/>
+  </macro>
+
+  <macro name="volume">
+    <text variable="volume" font-weight="bold"/>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page"/>
+  </macro>
+
+  <macro name="doi">
+    <text variable="DOI" prefix="https://doi.org/"/>
+  </macro>
+
+  <macro name="publisher">
+    <text variable="publisher"/>
+  </macro>
+
+  <macro name="booktitle">
+    <text variable="container-title"/>
+  </macro>
+
+  <!-- Citation layout -->
+  <citation>
+    <layout delimiter=", ">
+      <text macro="author"/>
+      <text macro="title"/>
+      <choose>
+        <if type="article-journal">
+          <text macro="journal"/>
+          <text macro="volume"/>
+          <text macro="pages"/>
+        </if>
+        <else-if type="book">
+          <text macro="publisher"/>
+        </else-if>
+        <else-if type="paper-conference">
+          <text macro="booktitle"/>
+        </else-if>
+      </choose>
+      <text macro="issued" prefix="(" suffix=")"/>
+      <text macro="doi"/>
+    </layout>
+  </citation>
+
+  <!-- Bibliography layout -->
+  <bibliography>
+    <layout hanging-indent="true" delimiter=", ">
+      <text macro="author"/>
+      <text macro="title"/>
+      <choose>
+        <if type="article-journal">
+          <text macro="journal"/>
+          <text macro="volume"/>
+          <text macro="pages"/>
+        </if>
+        <else-if type="book">
+          <text macro="publisher"/>
+        </else-if>
+        <else-if type="paper-conference">
+          <text macro="booktitle"/>
+        </else-if>
+      </choose>
+      <text macro="issued" prefix="(" suffix=")"/>
+      <text macro="doi"/>
+    </layout>
+  </bibliography>
+</style>
